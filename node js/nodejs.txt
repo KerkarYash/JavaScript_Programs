@@ -1,0 +1,27 @@
+Node.js is a runtime for javascript which runs on server.
+It runs on asynchronous non blocking i/o model.
+npm: is a node package manager. IT manages the packages of the node very effectively. It is like a pip in python. In ubuntu we have apt which is a package manager for ubuntu.
+npm facilitates to install packages.
+
+package.json: it contains information all information about your project. 
+
+Packages: In js, packages means codes that are already written by someone and you want to use those codes.
+For that we can install the package and import it in our own code. 
+
+To install packages use: npm install package_name or npm i package_name
+For example: npm install express --save //when you run this command, it will create node_modules folder and in package.json, express will be define as dependency.
+
+Whenever we distribute our applcication, we don't give our node_modules folder, that person can install npm and can change it in its own computer. 
+
+node_modules: it is a folder, in which dependencies gets downloaded from the internet.
+
+**
+We can also install a package globally
+npm i -g nodemon //nodemon will get installed globally, it means we can use nodemon in any project in our system.
+
+nodemon: it reruns the output. It is useful when we run http servers
+
+dev dependency: dependency which is only used during development.
+Ex: npm install --save-dev nodemon  //now nodemon will be only used during development time
+
+package-lock.json: it contains dependencies of packages. It means here the tree of the dependency is present as it is. 

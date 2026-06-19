@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <script>
+      let a = {
+        name2:"Yash",
+        language:"Java",
+          run: ()=>{  // ye chal jayega, but agar isse ye method yaha nahi mila, toh jayega niche iske prototype main dhundne.
+          alert("self run")
+        }
+      }
+
+      console.log(a)
+      console.log(a.toString())
+      console.log(a.valueOf())
+
+
+      let p = {
+        run: ()=>{  // run is a method
+          alert("run")
+        }
+      }
+
+      a.__proto__ = p
+
+      //Prototype ka bhi prototype ho sakta hai
+
+      //p cha prototype ithe object thevlay
+
+      p.__proto__ = {
+        name: "Jackie"
+      }
+
+      a.run()
+
+      console.log(a.name)
+  </script>
+</body>
+</html>

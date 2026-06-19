@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+        class RailwayForm{
+          //whenever an object of a class is created, constructor will run. constructor method is automatically called by New
+          constructor(givenname, train_no, address){ 
+            console.log("CONSTRUCTOR CALLED "+givenname+" "+train_no);
+            this.name = givenname
+            this.train_no = train_no
+            this.address = address
+          }
+
+          preview(){
+            alert(`${this.name}'s form for train number: ${this.train_no} and your address is ${this.address}`)
+          }
+
+          submit(){
+            alert(`${this.name}'s form is submitted for train number: ${this.train_no}.`)
+          }
+
+          cancel(){
+            alert(`${this.name}'s form is cancelled for train number: ${this.train_no}.`)
+            this.train_no = 0
+          }
+        }
+
+        let yashForm = new RailwayForm("Yash", 22250, "Nalasopara")
+        yashForm = new RailwayForm("Yash", 22250, "Nalasopara")
+        yashForm.preview()
+  </script>
+</body>
+</html>
