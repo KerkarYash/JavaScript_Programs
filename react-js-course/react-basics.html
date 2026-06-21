@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>React Basics</title>
+  </head>
+  <body>
+    <div class="js-container"></div>
+
+    <script src="https://unpkg.com/supersimpledev@8.6.4/external-library.js"></script>
+    
+    <!--using script tag we can load the code from anywhere on the internet-->
+    <!--the src written in it is known as external-library. external-library is a code that is outside our computer. Code that someone else wrote and we can load them in our website
+
+    So react is an external-library. It's a bunch of code that is outside our computer. We can load this code on our website and use it. -->
+
+
+
+    <script src="https://unpkg.com/supersimpledev/react.js"></script>
+    <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+
+    <!--React = shared features
+    ReactDOM = features specific to websites. 
+    Using React to create websites:
+    load React and ReactDOM
+    Using react to create mobile apps:
+    Load react & ReactNative -->
+
+    <script src="https://unpkg.com/supersimpledev/babel.js"></script> <!--THis is also an external library. it is known as babel. It is a js compiler that translates other languages into JS. -->
+    <script type="text/babel">
+
+      const button = <button>Hello</button>;  //JSX into the action
+
+      const paragraph = <p>This is a paragraph.</p>
+
+      // Displaying multiple elements on page for that we can use a div container. 
+      const div = <div>
+          <button>Hello</button>
+          <p>Paragraph</p>
+        </div>
+    
+      const container = document.querySelector('.js-container');  //document is a Feature of DOM.
+      //JS gives this document, document is a combined html, it allows us to get the html elements from the page and put them into our js. Everything inside the container will be control by react.
+      //render is used to display.
+      ReactDOM.createRoot(container).render(div);
+
+      //ReactDOM.createRoot() //setups react
+    </script>
+  </body>
+</html>

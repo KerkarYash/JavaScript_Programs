@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1d_1e</title>
+</head>
+<body>
+  <div class="js-container"></div>
+
+  <script src="https://unpkg.com/supersimpledev/react.js"></script>
+  <script src="https://unpkg.com/supersimpledev/react-dom.js"></script>
+  <script src="https://unpkg.com/supersimpledev/babel.js"></script> 
+
+  <script type="text/babel">
+    const socks = 10;
+    const t_shirts = 8;
+
+    let productCost = socks + 2 * t_shirts;
+
+    console.log(productCost);
+
+    const container = document.querySelector('.js-container');
+    ReactDOM.createRoot(container).render(<h1>Total cost: {productCost}</h1>);
+  </script>
+</body>
+</html>
