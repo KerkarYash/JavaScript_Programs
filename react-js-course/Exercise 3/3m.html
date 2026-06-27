@@ -13,8 +13,8 @@
     <script type="text/babel">
 
       function ChatInput({chatMessages, setChatMessages}){
-        const [inputText, setInputText] = React.useState('');
-        const [isLoading, setIsLoading] = React.useState(tr);
+        const [inputText, setInputText] = React.useState("");
+        const [isLoading, setIsLoading] = React.useState(false);
 
         function saveInputText(event){
           setInputText(event.target.value);
@@ -23,10 +23,16 @@
       
         async function sendMessage() {
 
+          if(isLoading){
+            return;
+          }
+
           if(inputText === ""){
             alert("Please enter something...")
             return
           }
+
+          setIsLoading(true); //Chatbot busy
   
           const newChatMessages = [
 
@@ -53,6 +59,7 @@
           ]);
 
           const response = await Chatbot.getResponseAsync(inputText);
+          setIsLoading(false);
             setChatMessages([
             ...newChatMessages,
             {
