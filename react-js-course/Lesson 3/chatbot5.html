@@ -1,9 +1,82 @@
-<!--Lifting the components up in the state means moving a state from child component to parent component. So that other child component can also access that state. Once the state is moved to the parent compoent, the parent component can share it across its child using props.  -->
-
 <!DOCTYPE html>
 <html>
   <head>
     <title>Chatbot 5</title>
+    <style>
+      body{
+        font-family:Arial;
+
+        /*removing the default body px, so that it won't scroll.*/
+        margin-top:0px;
+        margin-bottom:0px;
+      }
+
+      .send-button{
+        background-color: rgb(25, 135, 84);;
+        color:white;
+        padding: 12px 20px; /*vertical and horizontal space*/
+        margin-left: 10px;
+        border: none;
+        border-radius: 10px;
+        cursor:pointer;
+        font-size:15px;
+      }
+
+      .chat-input{
+        padding:12px 15px; 
+        border-radius:10px;
+        border-width:1px; /*to change the thickness of the border*/
+        font-size:15px;
+        flex-grow:1;
+      }
+
+      .chat-input-container{
+        display:flex;
+        margin-bottom:60px;
+      }
+
+      .app-container{
+        max-width: 600px;
+        /*to make the input center*/
+        margin-left:auto;
+        margin-right:auto;
+        height: 100vh;
+        display:flex;
+        flex-direction: column;
+      }
+
+      .chat-message-user {
+        display:flex;
+        justify-content: end;
+        align-items: start;
+      }
+
+      .chat-message-robot{
+        display:flex;
+        align-items:start;
+      }
+
+      .chat-message-text {
+        background: rgb(238, 238, 238);
+        padding:15px 20px;
+        border-radius:10px;
+        margin-right: 10px;
+        margin-left:10px;
+        margin-bottom:20px;
+        max-width:300px;
+      }
+
+      .chat-message-profile {
+        width: 45px;
+      }
+
+      .chat-messages-container {
+        flex-grow:1;
+        margin-top:20px;
+        overflow:scroll; /*makes the chat message container scrollable*/
+        scrollbar-width: none; /*it makes the scrollbar invisible*/
+      }
+    </style>
   </head>
   <body>
     <div class="js-container"></div>
@@ -43,43 +116,62 @@
             }
           ]);
 
-          setInputText(''); //this will update the inputText to empty after sending the message, but it will not update the html yet, under the return statement, we have to give a prop to the input box known as value. This is called controlled input, and using the value prop we can controlled the text inside the textbox using our code. 
+          setInputText('');  
         }
 
         return(
-          <>
+          <div className = "chat-input-container">
             <input 
               placeholder="Send a message to Chatbot" 
               size="30"
               onChange={saveInputText}
               value={inputText}
+              className="chat-input"
             />
-            <button onClick={sendMessage}>Send</button>
-          </>
+            <button 
+              onClick={sendMessage}
+              className="send-button"
+            >Send</button>
+          </div>
         );
       }
 
       function ChatMessage({message, sender}) {
     
-
         return  (
-          <div>
+          <div className={
+            sender === 'user' 
+            ? 'chat-message-user' 
+            : 'chat-message-robot'
+          }>
             {sender === 'robot' && (
-              <img src="robot.png" width="50" />
+              <img src="robot.png" className="chat-message-profile" />
             )}
-            {message}
+            <div
+            className="chat-message-text">
+              {message}
+            </div>
             {sender === 'user' &&  (
-              <img src="user.png" width="50" />
+              <img src="user.png" className="chat-message-profile" />
             )}
           </div>
         );
       }
 
       function ChatMessages({chatMessages}) {
+        const chatMessagesRef = React.useRef(null); //useRef automatically saves an HTML element from the component
+        React.useEffect(() => {
+          const containerElem = chatMessagesRef.current; //react saves the html chat-messages-container here inside the ref.
+
+          if(containerElem){
+            containerElem.scrollTop = containerElem.scrollHeight;
+          }
+
+          console.log(chatMessagesRef.current);
+        }, [chatMessages]);
+
         return (
-          <>
-        
-          
+          <div className="chat-messages-container" ref={chatMessagesRef}>
             {chatMessages.map((chatMessage) => {
                   return (
                     <ChatMessage 
@@ -89,7 +181,7 @@
                     />
                   );
               })}
-          </>
+          </div>
         )
         
       }
@@ -117,15 +209,15 @@
         
 
         return (
-            <>
+            <div className="app-container">
+            <ChatMessages
+            chatMessages = {chatMessages}
+            />
             <ChatInput 
               chatMessages={chatMessages}
               setChatMessages={setChatMessages}
             />
-            <ChatMessages
-            chatMessages = {chatMessages}
-            />
-            </>
+            </div>
         );
       }
     
