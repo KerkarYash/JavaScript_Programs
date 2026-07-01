@@ -1,0 +1,8 @@
+/*CSS for overall website will go here. */
+
+body{
+  font-family:Arial;
+  /*removing the default body px, so that it won't scroll.*/
+  margin-top:0px;
+  margin-bottom:0px;
+}

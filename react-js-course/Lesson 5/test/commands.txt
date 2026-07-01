@@ -1,0 +1,87 @@
+mkdir folder_name: use to create folder through command line.
+
+command line runs inside a specific folder.
+
+pwd: to check the path where the command line is running. 
+
+ls: this command list everything which is present in this file.
+
+cd: change directory
+
+node: its a command of node.js that lets us run javascript code outside of a browser. 
+
+npm: node package manager. 
+- Package means an external library
+- npm lets us install external libraries or packages into our project. 
+
+to install any library or package we use the command:
+npm install package_name.
+this command install the package inside the node_modules folder.
+we can search for packages on npmjs website.
+npm has millions of packages to install
+
+Some packages also add a command to our command line.
+
+Example:
+Package:
+create-vite // if we install this package it also adds a command to our command line: ->  react-course> create-vite
+
+creat-vite: this command helps us to setup a new React project. 
+
+To use create-vite package there are two steps:
+1) Install the create-vite package.
+2) Run the create-vite package in the command line.
+
+Now npm has shortcut for this:
+npx create-vite  //npx does this two steps in one step.  (x means execute)
+
+To use it:
+npx create-vite@
+
+@ = means use a specific version of create-vite command.
+
+next command:
+
+npm install:
+In package.json, there are list of all the packages needed for the project.
+npm install will install all of these packages present in package.json. (packages like dependences, devDependencies present in package.json)
+
+After the npm install finishes all the packages present in package.json (packages like dependencies, dependencies) will be downloaded inside the node_modules folder. 
+
+npm run dev: This command starts up our new React website.
+
+
+project directory structure explanation:
+project_folder/node_modules folder: here npm installs all the packages.
+src(source folder): contains code for our website. (All jsx and css code)
+
+src/assets folder: contains images that we want to display on our website.
+
+project_folder/public folder: it contains files that should be available to public (we can access these using a url)
+Ex: when this website is on the internet we can give an image's url to access it.
+
+.gitignore: it is handle by git, git tracks changes in our code. In these file we include those files which we are not going to put on github.
+
+
+eslint.config.js: highlights problems in our javascript code. For this we need to download the extension eslint in vs code.
+
+index.html: contains html code for react website. Same as chatbot.html.
+
+package-lock.json:
+we know that package.json contains list of all packages that gets installed in node.js.
+Here package-lock.json, saves the version number of all the packages that we installed. 
+
+package.json: contains list of all pacakges needed in our project. 
+
+README.md: this file contains information about the project.
+
+vite.config.js: configures the vite. vite is the tool that we used to set up this project. 
+
+-vite also helps us to build this website. it means it - takes all the js and css and loads them in the index.html file.
+
+-vite also creates a server. (A server puts our website at a URL)
+Example: http://localhost:5173/
+
+-like like server of vs code, vite server also refreshes the website when we change some code
+
+-vite server is a replacement of live server. 

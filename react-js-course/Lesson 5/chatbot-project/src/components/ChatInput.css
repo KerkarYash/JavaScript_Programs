@@ -1,0 +1,30 @@
+.send-button{
+  background-color: rgb(25, 135, 84);;
+  color:white;
+  padding: 12px 20px; /*vertical and horizontal space*/
+  margin-left: 10px;
+  border: none;
+  border-radius: 10px;
+  cursor:pointer;
+  font-size:15px;
+}
+
+.chat-input{
+  padding:12px 15px; 
+  border-radius:10px;
+  border-width:1px; /*to change the thickness of the border*/
+  font-size:15px;
+  flex-grow:1;
+}
+
+.chat-input-container{
+  display:flex;
+  margin-bottom:60px;
+}
+
+.chat-messages-container {
+  flex-grow:1;
+  margin-top:20px;
+  overflow:scroll; /*makes the chat message container scrollable*/
+  scrollbar-width: none; /*it makes the scrollbar invisible*/
+}

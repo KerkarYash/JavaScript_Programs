@@ -1,0 +1,6 @@
+.chat-messages-container {
+  flex-grow:1;
+  margin-top:20px;
+  overflow:scroll; /*makes the chat message container scrollable*/
+  scrollbar-width: none; /*it makes the scrollbar invisible*/
+}
